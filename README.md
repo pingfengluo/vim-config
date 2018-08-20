@@ -8,13 +8,17 @@
  git clone https://github.com/pingfengluo/vim-config vim-config
  cp vim-config/.vimrc ~/.vimrc
 ```
-* open VIM in Terminal, then in commandline mode using "BundleInstall" to intstall plugins
+* open VIM in Terminal, then in VIM commandline mode using "BundleInstall" command to intstall plugins
 
-* after run "BundleInstall" in VIM commandline, go to YCM (in .vim directory) then run below command to get submodules
+* install YCM
 
 ```
+ cd ~/.vim/bundle/YouCompleteMe
  git submodule update --init --recursive
+./install.py --clang-completer
 ```
+
+* now enjoy yoursell with VIM
 
 ## Features
 
