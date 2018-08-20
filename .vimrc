@@ -1,11 +1,15 @@
 "========================================================
-" let Vundle manage plugin
+" Let Vundle manage plugins
+"========================================================
 set nocompatible               
 filetype off                   " required
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 filetype plugin indent on    " required
 
+"========================================================
+" Normal Setting
+"========================================================
 " always show status bar
 set ls=2
 
@@ -25,11 +29,9 @@ let mapleader = ','
 let g:mapleader = ','
 
 "========================================================
-
-
-
-"========================================================
 " Vim-plug initialization
+"========================================================
+
 " TAGBAR
 Bundle 'majutsushi/tagbar'
 " NERDTREE
@@ -37,22 +39,17 @@ Bundle 'scrooloose/nerdtree'
 " YCM
 Bundle 'Valloric/YouCompleteMe'
 
-"========================================================
-
-
-
-"========================================================
-" -------------------------------
-" Tagbar
-" -------------------------------
+" -------------------------------------------------------
+" Tagbar Setting
+" -------------------------------------------------------
 " toggle tagbar display
 map <F4> :TagbarToggle<CR>
 " autofocus on tagbar open
 let g:tagbar_autofocus = 1
 
-" -------------------------------
-" NERDTree
-" -------------------------------
+" -------------------------------------------------------
+" NERDTree setting
+" -------------------------------------------------------
 " toggle nerdtree display
 map <F3> :NERDTreeToggle<CR>
 " open nerdtree with the current file selected
@@ -60,9 +57,9 @@ nmap ,t :NERDTreeFind<CR>
 " don;t show these file types
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 
-" -------------------------------
-" CSCOPSE
-" -------------------------------
+" -------------------------------------------------------
+" CSCOPSE setting
+" -------------------------------------------------------
 function! LoadCscope()
     let db = findfile("cscope.out", ".;")
     if (!empty(db))
@@ -84,15 +81,12 @@ nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
-" -------------------------------
-" YCM
-" -------------------------------
+" -------------------------------------------------------
+" YCM setting
+" -------------------------------------------------------
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
 " disable syntax checker
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_goto_buffer_command = 'horizontal-split'
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
-
-
-"========================================================
