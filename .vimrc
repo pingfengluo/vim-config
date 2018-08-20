@@ -8,7 +8,7 @@ call vundle#rc()
 filetype plugin indent on    " required
 
 "========================================================
-" Normal Setting
+" Normal setting
 "========================================================
 " always show status bar
 set ls=2
@@ -29,7 +29,7 @@ let mapleader = ','
 let g:mapleader = ','
 
 "========================================================
-" Vim-plug initialization
+" Vim-plugins initialization
 "========================================================
 
 " TAGBAR
@@ -40,7 +40,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'Valloric/YouCompleteMe'
 
 " -------------------------------------------------------
-" Tagbar Setting
+" Tagbar setting
 " -------------------------------------------------------
 " toggle tagbar display
 map <F4> :TagbarToggle<CR>
@@ -58,7 +58,7 @@ nmap ,t :NERDTreeFind<CR>
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 
 " -------------------------------------------------------
-" CSCOPSE setting
+" Cscope setting
 " -------------------------------------------------------
 function! LoadCscope()
     let db = findfile("cscope.out", ".;")
