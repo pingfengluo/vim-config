@@ -72,7 +72,7 @@ endfunction
 au BufEnter /* call LoadCscope()
 set cscopequickfix=s-,c-,d-,i-,t-,e-
 
-" set keymap , '<C-_>' meaning 'CTRL + SHITH + -"
+" set keymap , '<C-_>' meaning 'CTRL + SHIFT + -"
 nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
 nmap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR>
