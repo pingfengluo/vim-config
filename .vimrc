@@ -1,7 +1,7 @@
 "========================================================
 " let Vundle manage plugin
-set nocompatible                " be iMproved
-filetype off                    " required!
+set nocompatible               
+filetype off                   " required
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 filetype plugin indent on    " required
