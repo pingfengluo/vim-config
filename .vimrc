@@ -15,13 +15,13 @@ set ls=2
 
 " incremental search
 set incsearch
-" highlighted search results
+" highlight search results
 set hlsearch
 
 " syntax highlight on
 syntax on
 
-" show line numbers
+" show line number
 set nu
 
 " set leader key
@@ -32,20 +32,12 @@ let g:mapleader = ','
 " Vim-plugins initialization
 "========================================================
 
-" TAGBAR
-Bundle 'majutsushi/tagbar'
 " NERDTREE
 Bundle 'scrooloose/nerdtree'
+" TAGBAR
+Bundle 'majutsushi/tagbar'
 " YCM
 Bundle 'Valloric/YouCompleteMe'
-
-" -------------------------------------------------------
-" Tagbar setting
-" -------------------------------------------------------
-" toggle tagbar display
-map <F4> :TagbarToggle<CR>
-" autofocus on tagbar open
-let g:tagbar_autofocus = 1
 
 " -------------------------------------------------------
 " NERDTree setting
@@ -54,8 +46,16 @@ let g:tagbar_autofocus = 1
 map <F3> :NERDTreeToggle<CR>
 " open nerdtree with the current file selected
 nmap ,t :NERDTreeFind<CR>
-" don;t show these file types
-let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
+" don't show these file types
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '.git', 'tags', 'cscope*']
+
+" -------------------------------------------------------
+" Tagbar setting
+" -------------------------------------------------------
+" toggle tagbar display
+map <F4> :TagbarToggle<CR>
+" autofocus on tagbar open
+let g:tagbar_autofocus = 1
 
 " -------------------------------------------------------
 " Cscope setting
@@ -72,6 +72,7 @@ endfunction
 au BufEnter /* call LoadCscope()
 set cscopequickfix=s-,c-,d-,i-,t-,e-
 
+" set keymap , '<C-_>' meaning 'CTRL + SHITH + -"
 nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
 nmap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR>
