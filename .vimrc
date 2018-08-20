@@ -87,7 +87,7 @@ nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 " -------------------------------
 " YCM
 " -------------------------------
-let g:ycm_global_ycm_extra_conf = '/User/luopingfeng/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
 " disable syntax checker
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_goto_buffer_command = 'horizontal-split'
