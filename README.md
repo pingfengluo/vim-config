@@ -3,7 +3,7 @@
 ```
  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
-## TIPS
+## Tips
 
 *  after run BundleInstall in VIM command line, go to YCM (in .vim directory) run below command
 
@@ -11,7 +11,7 @@
  git submodule update --init --recursive
 ```
 
-## Feature
+## Features
 * auto manage all plug, make things simple
 
 * auto load cscope
