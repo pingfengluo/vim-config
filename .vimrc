@@ -29,7 +29,7 @@ let mapleader = ','
 let g:mapleader = ','
 
 "========================================================
-" Vim-plugins initialization
+" Plugins initialization
 "========================================================
 
 " NERDTREE
