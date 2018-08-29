@@ -18,7 +18,7 @@
 ./install.py --clang-completer
 ```
 
-* now enjoy yoursell with VIM
+* now enjoy yourself with VIM
 
 ## Features
 
