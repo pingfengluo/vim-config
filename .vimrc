@@ -18,6 +18,10 @@ set incsearch
 " highlight search results
 set hlsearch
 
+set smartindent
+set splitright
+set splitbelow
+
 " syntax highlight on
 syntax on
 
@@ -28,6 +32,26 @@ set nu
 let mapleader = ','
 let g:mapleader = ','
 
+"========================================================
+" Auto insert header
+"========================================================
+
+autocmd BufNewFile *.c exec ":call AddHeader()"
+autocmd BufNewFile *.cc exec ":call AddHeader()"
+autocmd BufNewFile *.h exec ":call AddHeader()"
+map <F9> :call AddHeader()<cr>'s
+function AddHeader()
+	call append(0, "//*********************************************************************************")
+	call append(1, "//")
+	call append(2, "//  ".fnamemodify(getcwd(), ':t')." ".expand("%:t"))
+	call append(3, "//")
+	call append(4, "//  Created by Pingfeng on ".strftime("%m/%d/%y").".")
+	call append(5, "//")
+	call append(6, "//  Description: ")
+	call append(7, "//")
+	call append(8, "//*********************************************************************************")
+	echohl WarningMsg | echo "Succeeded in adding copyright." | echohl None
+endfunction
 "========================================================
 " Plugins initialization
 "========================================================
