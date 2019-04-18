@@ -19,8 +19,11 @@ set incsearch
 set hlsearch
 
 set smartindent
+set shiftwidth=4
 set splitright
 set splitbelow
+set backspace=2
+set clipboard=unnamed
 
 " syntax highlight on
 syntax on
@@ -32,6 +35,9 @@ set nu
 let mapleader = ','
 let g:mapleader = ','
 
+" set encoding
+set encoding=utf-8
+
 "========================================================
 " Auto insert header
 "========================================================
@@ -41,16 +47,16 @@ autocmd BufNewFile *.cc exec ":call AddHeader()"
 autocmd BufNewFile *.h exec ":call AddHeader()"
 map <F9> :call AddHeader()<cr>'s
 function AddHeader()
-	call append(0, "//*********************************************************************************")
-	call append(1, "//")
-	call append(2, "//  ".fnamemodify(getcwd(), ':t')." ".expand("%:t"))
-	call append(3, "//")
-	call append(4, "//  Created by Pingfeng on ".strftime("%m/%d/%y").".")
-	call append(5, "//")
-	call append(6, "//  Description: ")
-	call append(7, "//")
-	call append(8, "//*********************************************************************************")
-	echohl WarningMsg | echo "Succeeded in adding copyright." | echohl None
+    call append(0, "//*********************************************************************************")
+    call append(1, "//")
+    call append(2, "//  ".fnamemodify(getcwd(), ':t')." ".expand("%:t"))
+    call append(3, "//")
+    call append(4, "//  Created by Pingfeng on ".strftime("%m/%d/%y").".")
+    call append(5, "//")
+    call append(6, "//  Description: ")
+    call append(7, "//")
+    call append(8, "//*********************************************************************************")
+    echohl WarningMsg | echo "Succeeded in adding copyright." | echohl None
 endfunction
 "========================================================
 " Plugins initialization
@@ -87,10 +93,10 @@ let g:tagbar_autofocus = 1
 function! LoadCscope()
     let db = findfile("cscope.out", ".;")
     if (!empty(db))
-        let path = strpart(db, 0, match(db, "/cscope.out$"))
-        set nocscopeverbose " suppress 'duplicate connection' error
-        exe "cs add " . db . " " . path
-        set cscopeverbose
+	let path = strpart(db, 0, match(db, "/cscope.out$"))
+	set nocscopeverbose " suppress 'duplicate connection' error
+	exe "cs add " . db . " " . path
+	set cscopeverbose
     endif
 endfunction
 au BufEnter /* call LoadCscope()
@@ -109,9 +115,26 @@ nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 " -------------------------------------------------------
 " YCM setting
 " -------------------------------------------------------
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py '
 " disable syntax checker
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_goto_buffer_command = 'horizontal-split'
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
+
+let g:ycm_min_num_of_chars_for_completion = 1
+set completeopt=longest,menu
+
+" autoycm with language
+let g:ycm_semantic_triggers =  {
+	    \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{1}'],
+	    \ 'cs,lua,javascript': ['re!\w{1}'],
+	    \ }
+" autoycm with filetype
+let g:ycm_filetype_whitelist = {
+	    \ "c":1,
+	    \ "cpp":1,
+	    \ "python":1,
+	    \ "sh":1,
+	    \ }
+

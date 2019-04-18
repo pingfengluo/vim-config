@@ -1,5 +1,14 @@
-## Install
+## Features
+* config VIM as IDE
 
+* autocomplete
+
+* useful keymap
+
+* manage all plugins in a elegant way
+
+
+## Install
 * backup your vimrc && update
 ```
  mv ~/.vim ~/.vim.bk
@@ -17,15 +26,5 @@
  git submodule update --init --recursive
 ./install.py --clang-completer
 ```
-
 * now enjoy yourself with VIM
 
-## Features
-
-* autocomplete
-
-* useful keymap
-
-* config VIM as IDE
-
-* manage all plugins in a elegant way
