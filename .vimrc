@@ -32,8 +32,8 @@ syntax on
 set nu
 
 " set leader key
-let mapleader = ','
-let g:mapleader = ','
+let mapleader=','
+let g:mapleader=','
 
 " set encoding
 set encoding=utf-8
@@ -77,7 +77,7 @@ map <F3> :NERDTreeToggle<CR>
 " open nerdtree with the current file selected
 nmap ,t :NERDTreeFind<CR>
 " don't show these file types
-let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '.git', 'tags', 'cscope*']
+let NERDTreeIgnore=['\.pyc$', '\.pyo$', '.git', 'tags', 'cscope*']
 
 " -------------------------------------------------------
 " Tagbar setting
@@ -85,15 +85,15 @@ let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '.git', 'tags', 'cscope*']
 " toggle tagbar display
 map <F4> :TagbarToggle<CR>
 " autofocus on tagbar open
-let g:tagbar_autofocus = 1
+let g:tagbar_autofocus=1
 
 " -------------------------------------------------------
 " Cscope setting
 " -------------------------------------------------------
 function! LoadCscope()
-    let db = findfile("cscope.out", ".;")
+    let db=findfile("cscope.out", ".;")
     if (!empty(db))
-	let path = strpart(db, 0, match(db, "/cscope.out$"))
+	let path=strpart(db, 0, match(db, "/cscope.out$"))
 	set nocscopeverbose " suppress 'duplicate connection' error
 	exe "cs add " . db . " " . path
 	set cscopeverbose
@@ -115,26 +115,43 @@ nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 " -------------------------------------------------------
 " YCM setting
 " -------------------------------------------------------
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py '
-" disable syntax checker
-let g:ycm_show_diagnostics_ui = 0
-let g:ycm_goto_buffer_command = 'horizontal-split'
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
-
-let g:ycm_min_num_of_chars_for_completion = 1
-set completeopt=longest,menu
-
-" autoycm with language
-let g:ycm_semantic_triggers =  {
-	    \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{1}'],
-	    \ 'cs,lua,javascript': ['re!\w{1}'],
-	    \ }
-" autoycm with filetype
-let g:ycm_filetype_whitelist = {
+let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py '
+let g:ycm_filetype_whitelist={
 	    \ "c":1,
 	    \ "cpp":1,
-	    \ "python":1,
+	    \ "h":1,
 	    \ "sh":1,
+	    \ "zsh":1,
+	    \ }
+set completeopt=menu,menuone,noinsert,noselect
+let g:ycm_semantic_triggers={
+	    \ 'c,h': ['->', '.'],
+	    \ 'cpp,hpp,cuda,objcpp': ['->', '.', '::'],
 	    \ }
 
+let g:ycm_confirm_extra_conf=0
+let g:ycm_use_clangd=0 
+
+" diagnostic
+let g:ycm_show_diagnostics_ui=0
+let g:ycm_enable_diagnostic_signs=0
+let g:ycm_enable_diagnostic_highlighting=0
+
+" trigger
+let g:ycm_min_num_of_chars_for_completion=2
+let g:ycm_min_num_identifier_candidate_chars=2
+let g:ycm_auto_trigger=1
+
+" UI
+let g:ycm_add_preview_to_completeopt=0
+let g:ycm_max_num_candidates=50
+let g:ycm_autoclose_preview_window_after_completion=1
+
+" Others
+let g:ycm_use_ultisnips_completer=1
+let g:ycm_collect_identifiers_from_tags_files=0
+let g:ycm_collect_identifiers_from_comments_and_strings=1
+let g:ycm_complete_in_strings=0
+let g:ycm_seed_identifiers_with_syntax=0
+let g:ycm_cache_omnifunc=0
+let g:ycm_disable_for_files_larger_than_kb=1000
