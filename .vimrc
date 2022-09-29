@@ -18,8 +18,12 @@ set incsearch
 " highlight search results
 set hlsearch
 
+" set indent
 set smartindent
-set shiftwidth=4
+set expandtab
+set shiftwidth=2
+set backspace=2
+set tabstop=2
 set splitright
 set splitbelow
 set backspace=2
@@ -27,6 +31,11 @@ set clipboard=unnamed
 
 " syntax highlight on
 syntax on
+
+" disable backups and .swp files
+set nobackup
+set nowritebackup
+set noswapfile
 
 " show line number
 set nu
