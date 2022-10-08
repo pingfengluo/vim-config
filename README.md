@@ -17,7 +17,7 @@
  git clone https://github.com/pingfengluo/vim-config vim-config
  cp vim-config/.vimrc ~/.vimrc
 ```
-* open VIM in Terminal, then in VIM commandline mode using "BundleInstall" command to intstall plugins
+* open VIM in Terminal, then in VIM commandline mode using `PluginInstall` command to intstall plugins
 
 * install YCM
 
