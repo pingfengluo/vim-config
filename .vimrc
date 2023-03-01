@@ -76,9 +76,11 @@ Plugin 'scrooloose/nerdtree'
 " TAGBAR
 Plugin 'majutsushi/tagbar'
 " YCM
-Plugin 'Valloric/YouCompleteMe'
-" Clang-format
-Plugin 'cjuniet/clang-format.vim'
+" Plugin 'Valloric/YouCompleteMe'
+" add codefmt
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-codefmt'
+Plugin 'google/vim-glaive'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -127,6 +129,14 @@ function! LoadCscope()
 endfunction
 au BufEnter /* call LoadCscope()
 set cscopequickfix=s-,c-,d-,i-,t-,e-
+
+" -------------------------------------------------------
+" codefmt setting
+" -------------------------------------------------------
+call glaive#Install()
+Glaive codefmt plugin[mappings]
+Glaive codefmt google_java_executable="java -jar /Users/11152336/Tools/vim/google-java-format-1.15.0-all-deps.jar"
+
 
 " set keymap , '<C-_>' meaning 'CTRL + SHIFT + -"
 nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
